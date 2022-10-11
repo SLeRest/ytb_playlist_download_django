@@ -16,15 +16,16 @@ RUN apt-get upgrade -y
 RUN apt-get install -y python3-dev python3-pip
 
 # push all files needed
-COPY ../app /usr/src/app
-COPY ../ytb_playlist_download /usr/src/ytb_playlist_download
-COPY ../requirements.txt /usr/src/requirements.txt
-COPY ../entrypoint.sh /usr/src/entrypoint.sh
+COPY manage.py /usr/src/manage.py
+COPY app /usr/src/app
+COPY ytb_playlist_download /usr/src/ytb_playlist_download
+COPY requirements.txt /usr/src/requirements.txt
+COPY entrypoint.sh /usr/src/entrypoint.sh
 WORKDIR /usr/src
 
 # install pip package
 RUN pip3 install --upgrade pip
-RUN --mount=type=cache,mode=0755,target=/root/.cache pip3 install -r ./requirement.txt
+RUN --mount=type=cache,mode=0755,target=/root/.cache pip3 install -r ./requirements.txt
 
 # let's go
 ENTRYPOINT ["/usr/src/entrypoint.sh"]
