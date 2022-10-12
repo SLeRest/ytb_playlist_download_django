@@ -1,2 +1,5 @@
 Django==4.1.2
 djangorestframework==3.14.0
+django3-livesync==1 # DEBUG
+django-extensions==3.2.1 # DEBUG
+tzdata==2022.4 # FOR ADMIN

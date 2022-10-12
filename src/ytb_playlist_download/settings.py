@@ -36,7 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles', # DEBUG MAYBE restart django when file change
+    'livesync', # DEBUG restart django when file change
+    'django_extensions', # DEBUG
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +51,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+MIDDLEWARE_CLASSES = (
+    'livesync.core.middleware.DjangoLiveSyncMiddleware', # restart django when file change, for dev use 
+)
 
 ROOT_URLCONF = 'ytb_playlist_download.urls'
 

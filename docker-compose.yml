@@ -13,18 +13,18 @@ services:
         container_name: ytb_playlist_download
         hostname: ytb_playlist_download
         image: ytb_playlist_download:0.1
-        env_file: .env
+        env_file: src/.env
         networks:
             - db
             - traefik-inside
         volumes:
-            - ./src/app:/usr/src/app
+            - ./src:/usr/src
         labels:
             - "traefik.enable=true"
             - "traefik.docker.network=traefik-inside"
-            - "traefik.http.routers.slice-server.rule=PathPrefix(`/ytp-playlist-download/api/0.0`)"
-            - "traefik.http.routers.slice-server.entrypoints=http"
-            - "traefik.http.services.slice-server.loadbalancer.server.port=80"
+            - "traefik.http.routers.ytb-playlist-download.rule=PathPrefix(`/ytb-playlist-download/api/0.0`)"
+            - "traefik.http.routers.ytb-playlist-download.entrypoints=http"
+            - "traefik.http.services.ytb-playlist-download.loadbalancer.server.port=80"
 
 # ----------------------- DATABASE  ---------
     db:
