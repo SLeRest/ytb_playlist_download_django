@@ -36,10 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'rest_framework',
     'django.contrib.staticfiles', # DEBUG MAYBE restart django when file change
     'livesync', # DEBUG restart django when file change
     'django_extensions', # DEBUG
-    'app',
+    'playlist',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,8 @@ STATIC_URL = 'ytb-playlist-download/api/0.0/static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
