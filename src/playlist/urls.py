@@ -7,9 +7,10 @@ from playlist import views
 router = DefaultRouter()
 #router.register(r'songs', views.SongViewSet)
 router.register(r'users', views.UserViewSet)
+router.register(r'song', views.SongViewSet)
 
 # The API URLs are now determined automatically by the router.
 # Additionally, we include the login URLs for the browsable API.
 urlpatterns = [
-    re_path(r'^', include(router.urls))
+    re_path(r'^ytb-playlist-download/api/0.0/', include(router.urls))
 ]

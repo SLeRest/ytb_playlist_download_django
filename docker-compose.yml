@@ -6,7 +6,6 @@ services:
     ytp_playlist_download:
         build:
             context: ./src
-        command: uvicorn main:app --reload
         depends_on:
             - traefik
             - db

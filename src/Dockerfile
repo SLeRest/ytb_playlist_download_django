@@ -17,7 +17,7 @@ RUN apt-get install -y python3-dev python3-pip
 
 # push all files needed
 COPY manage.py /usr/src/manage.py
-COPY app /usr/src/app
+COPY playlist /usr/src/playlist
 COPY ytb_playlist_download /usr/src/ytb_playlist_download
 COPY requirements.txt /usr/src/requirements.txt
 COPY entrypoint.sh /usr/src/entrypoint.sh
