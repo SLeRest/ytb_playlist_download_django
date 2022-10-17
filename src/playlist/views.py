@@ -13,7 +13,11 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
 
 class SongViewSet(viewsets.ModelViewSet):
-
+    """
+    The actions provided by the ModelViewSet class are
+    .list(), .retrieve(), .create(), .update(),
+    .partial_update(), and .destroy().
+    """
     queryset = Song.objects.all()
     serializer_class = SongSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, )

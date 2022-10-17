@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,6 +25,12 @@ SECRET_KEY = 'django-insecure-q(@p(&sv4e=!ndj382@%vvq#(2$2pjki_)*nz-ih)nvp98!92y
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+DB_NAME = os.getenv('DB_NAME', 'postgres')
+DB_USER = os.getenv('DB_USER', 'postgres')
+DB_PASSWORD = os.getenv('DB_PASSWORD', 'postgres')
+DB_HOST = os.getenv('DB_HOST', 'db')
+DB_PORT = os.getenv('DB_PORT', '5432')
 
 ALLOWED_HOSTS = []
 
@@ -83,8 +90,12 @@ WSGI_APPLICATION = 'ytb_playlist_download.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
     }
 }
 
