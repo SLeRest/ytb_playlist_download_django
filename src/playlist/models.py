@@ -6,7 +6,6 @@ class Song(models.Model):
     album = models.CharField(max_length=255, null=True, default=None)
     release_date = models.DateField(null=True, default=None)
     downloaded = models.DateTimeField(null=True, default=None)
-    song_data = models.BinaryField(null=True, default=None)
     song_data = models.FileField(null=True, default=None)
     format = models.CharField(null=True, max_length=20) # TODO a list of choice and it can't be mull
     youtube_url = models.CharField(max_length=255) # TODO check if valid url
